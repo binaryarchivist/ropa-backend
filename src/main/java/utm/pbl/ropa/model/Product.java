@@ -1,21 +1,33 @@
 package utm.pbl.ropa.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Product {
     @Id
+    @SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", allocationSize = 100)
+    @GeneratedValue(generator = "mySeqGen")
     private Integer productId;
 
-    private String filePath;
+    @Column(unique = true, nullable = false)
+    private String name;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
     private Integer price;
+
+    @Column(nullable = false)
     private Integer weight;
+
+    @Column(nullable = false)
     private Integer eta;
+
+    @OneToOne(optional = false)
+    Document document;
 
     public Product() {
     }
@@ -28,13 +40,6 @@ public class Product {
         this.productId = productId;
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public String getDescription() {
         return description;
@@ -68,15 +73,11 @@ public class Product {
         this.eta = eta;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", filePath='" + filePath + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", weight=" + weight +
-                ", eta=" + eta +
-                '}';
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

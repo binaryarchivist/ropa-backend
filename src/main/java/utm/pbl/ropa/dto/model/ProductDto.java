@@ -1,9 +1,9 @@
 package utm.pbl.ropa.dto.model;
 
-// Example Dto class
 public class ProductDto {
     private Integer productId;
 
+    private String name;
     private String description;
     private Integer price;
     private Integer weight;
@@ -52,10 +52,19 @@ public class ProductDto {
         this.eta = eta;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "ProductDto{" +
                 "productId=" + productId +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", weight=" + weight +
