@@ -9,6 +9,7 @@ import utm.pbl.ropa.repository.ProductRepository;
 import utm.pbl.ropa.service.ProductService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Component
 public class ProductServiceImpl implements ProductService {
@@ -23,6 +24,13 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public Product getProductById(Integer id) {
+        return productRepository.findById(id)
+                .orElseThrow(NoSuchElementException::new);
+    }
+
     @Override
     public List<Product> getProductList() {
         return productRepository.findAll();

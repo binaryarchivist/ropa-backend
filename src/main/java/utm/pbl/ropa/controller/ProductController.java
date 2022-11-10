@@ -29,6 +29,11 @@ public class ProductController {
                 .toList();
     }
 
+    @GetMapping("{id}")
+    public ProductDto getProductById(@PathVariable Integer id) {
+        return toProductDto(productService.getProductById(id));
+    }
+
     @PostMapping
     public ProductDto createProduct(@RequestBody Product product) {
         return toProductDto(productService.createProduct(product));

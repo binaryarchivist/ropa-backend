@@ -26,8 +26,8 @@ public class Product {
     @Column(nullable = false)
     private Integer eta;
 
-    @OneToOne(optional = false)
-    Document document;
+//    @OneToOne(optional = false)
+//    Document document;
 
     public Product() {
     }
