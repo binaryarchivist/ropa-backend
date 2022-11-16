@@ -2,9 +2,10 @@ package utm.pbl.ropa.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name="ropa_product")
 public class Product {
     @Id
     @SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", allocationSize = 100)
@@ -25,6 +26,9 @@ public class Product {
 
     @Column(nullable = false)
     private Integer eta;
+
+    @OneToMany
+    private Set<Order> orders;
 
 //    @OneToOne(optional = false)
 //    Document document;
@@ -79,5 +83,13 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }
