@@ -7,15 +7,17 @@ import java.util.Set;
 
 
 @Entity
-@Table(name="ropa_table")
+@Table(name = "ropa_table")
 public class TableEntity {
     @Id
     @SequenceGenerator(name = "tableSeqGen", sequenceName = "tableSeq", allocationSize = 100)
     @GeneratedValue(generator = "tableSeqGen")
-    @Column(name="table_id")
-    private Integer tableId;
+    @Column(name = "table_id")
+    private Long tableId;
 
     private boolean isTaken;
+
+    private boolean isPayed;
 
     @OneToMany
     private Set<Cart> carts;
@@ -23,11 +25,11 @@ public class TableEntity {
     public void Table() {
     }
 
-    public Integer getTableId() {
+    public Long getTableId() {
         return tableId;
     }
 
-    public void setTableId(Integer tableId) {
+    public void setTableId(Long tableId) {
         this.tableId = tableId;
     }
 
@@ -37,6 +39,14 @@ public class TableEntity {
 
     public void setTaken(boolean taken) {
         isTaken = taken;
+    }
+
+    public boolean isPayed() {
+        return isPayed;
+    }
+
+    public void setPayed(boolean payed) {
+        isPayed = payed;
     }
 
     public Set<Cart> getCarts() {
