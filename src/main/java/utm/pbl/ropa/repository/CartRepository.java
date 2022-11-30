@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import utm.pbl.ropa.model.Cart;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart, Integer> {
+public interface CartRepository extends JpaRepository<Cart, Long> {
 }

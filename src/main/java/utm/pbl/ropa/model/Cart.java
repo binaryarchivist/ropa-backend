@@ -1,13 +1,14 @@
 package utm.pbl.ropa.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="ropa_cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer cartId;
+    private Long cartId;
 
 
     @Column
@@ -20,14 +21,18 @@ public class Cart {
     @JoinColumn(name="table_id")
     private TableEntity table;
 
+
+    @OneToMany
+    private Set<Order> orders;
+
     public Cart() {
     }
 
-    public Integer getCartId() {
+    public Long getCartId() {
         return cartId;
     }
 
-    public void setCartId(Integer cartId) {
+    public void setCartId(Long cartId) {
         this.cartId = cartId;
     }
 
@@ -55,4 +60,11 @@ public class Cart {
         this.table = table;
     }
 
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
 }
