@@ -10,7 +10,7 @@ public class Product {
     @Id
     @SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", allocationSize = 100)
     @GeneratedValue(generator = "mySeqGen")
-    private Integer productId;
+    private Long productId;
 
     @Column(unique = true, nullable = false)
     private String name;
@@ -19,13 +19,13 @@ public class Product {
     private String description;
 
     @Column(nullable = false)
-    private Integer price;
+    private Long price;
 
     @Column(nullable = false)
-    private Integer weight;
+    private Long weight;
 
     @Column(nullable = false)
-    private Integer eta;
+    private Long eta;
 
     @OneToMany
     private Set<Order> orders;
@@ -36,11 +36,11 @@ public class Product {
     public Product() {
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -53,27 +53,27 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public Integer getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 
-    public Integer getEta() {
+    public Long getEta() {
         return eta;
     }
 
-    public void setEta(Integer eta) {
+    public void setEta(Long eta) {
         this.eta = eta;
     }
 

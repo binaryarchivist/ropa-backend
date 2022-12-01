@@ -9,9 +9,9 @@ public class Order {
     @Id
     @SequenceGenerator(name = "orderSeqGen", sequenceName = "orderSeq", allocationSize = 100)
     @GeneratedValue(generator = "orderSeqGen")
-    private Integer orderId;
+    private Long orderId;
 
-    private Integer quantity;
+    private Long quantity;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
@@ -23,19 +23,19 @@ public class Order {
     public Order() {
     }
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

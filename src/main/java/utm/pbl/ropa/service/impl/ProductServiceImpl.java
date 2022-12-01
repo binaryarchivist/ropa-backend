@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Integer id) {
+    public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(NoSuchElementException::new);
     }
@@ -37,12 +37,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Integer id) {
+    public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
 
     @Override
-    public Product updateProduct(Product newProduct, Integer id) {
+    public Product updateProduct(Product newProduct, Long id) {
         return productRepository.findById(id)
                 .map(product -> {
                     product.setName(newProduct.getName());

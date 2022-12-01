@@ -1,22 +1,22 @@
 package utm.pbl.ropa.dto.model;
 
 public class ProductDto {
-    private Integer productId;
+    private Long productId;
 
     private String name;
     private String description;
-    private Integer price;
-    private Integer weight;
-    private Integer eta;
+    private Long price;
+    private Long weight;
+    private Long eta;
 
     public ProductDto() {
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -28,27 +28,27 @@ public class ProductDto {
         this.description = description;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public Integer getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 
-    public Integer getEta() {
+    public Long getEta() {
         return eta;
     }
 
-    public void setEta(Integer eta) {
+    public void setEta(Long eta) {
         this.eta = eta;
     }
 
